@@ -1,0 +1,22 @@
+1. Cơ sở dữ liệu (MySQL)
+Bảng:
+Users: Lưu trữ thông tin về người dùng và danh sách theo dõi bài hát của họ.
+UserID (PK): ID duy nhất của người dùng
+Username: Tên người dùng
+FollowedTracks: Lưu trữ danh sách các bài hát được theo dõi bởi người dùng.
+FollowedTrackID (PK): ID duy nhất của bản ghi
+UserID (FK): Liên kết với bảng Users
+TrackID: ID của bài hát trên Spotify
+TrackName: Tên của bài hát
+2. Module đọc dữ liệu (Python + FastAPI)
+Mô tả: Module này sẽ kết nối với Spotify API để lấy thông tin về bài hát và người dùng.
+API: Sử dụng Spotify API để truy xuất thông tin về bài hát và người dùng.
+FastAPI: Tạo các endpoint để truy xuất thông tin về người dùng và danh sách theo dõi bài hát của họ.
+Đóng gói thành service với NSSM.
+3. Node-RED
+Mô tả: Node-RED sẽ tự động gọi API FastAPI để lấy thông tin về người dùng và danh sách theo dõi bài hát. Sau đó, dữ liệu sẽ được gửi đến cơ sở dữ liệu để lưu trữ.
+Khi có sự thay đổi trong danh sách theo dõi bài hát, Node-RED sẽ gọi các Stored Procedure để cập nhật hoặc thêm dữ liệu vào cơ sở dữ liệu.
+4. Web Visualization
+Mô tả: Giao diện web sẽ hiển thị thông tin về danh sách theo dõi bài hát của người dùng dưới dạng danh sách hoặc bảng.
+Cho phép người dùng tìm kiếm và lọc thông tin về bài hát.
+Cung cấp các biểu đồ thống kê về các bài hát phổ biến nhất, thể loại yêu thích, v.v.
